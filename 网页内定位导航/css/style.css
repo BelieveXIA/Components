@@ -1,0 +1,69 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+ul li{
+	list-style: none;
+}
+img{
+	display: block;
+	border: 0;
+}
+
+#content{
+	width: 940px;
+	margin: 0 auto;
+}
+#content .part{
+	padding: 20px;
+	margin-bottom: 20px;
+	border: 1px solid #ccc;
+}
+#content .part:last-of-type{
+	margin-bottom: 0;
+}
+#content .part h2{
+	line-height: 1.7;
+	border-bottom: 2px solid #14DFDD;
+	margin-bottom: 10px;
+}
+#content .part ul li{
+	display: inline;
+	margin-right: 10px;
+}
+#content .part ul li a img{
+	display: inline;
+	width: 280px;
+	height: 280px;
+}
+#menu{
+	position: fixed;
+	top:100px;
+	left: 50%;
+	margin-left: 470px;
+}
+#menu ul li a{
+	display: block;
+	text-decoration: none;
+	width: 80px;
+	height: 40px;
+	color: #000;
+	line-height: 40px;
+	text-align: center;
+}
+#menu ul li a:hover,
+#menu ul li a.current{
+	color: #fff;
+	background-color: #71A8F8;
+}
+/*IE6 hack*/
+* html, * html body {
+	background-image: url(about:blank);
+	background-attachment: fixed;
+}
+
+* html #menu {
+	position: absolute;
+	bottom: auto;
+	top: expression(100+((e=document.documentElement.scrollTop)?e:document.body.scrollTop)+'px');
+}

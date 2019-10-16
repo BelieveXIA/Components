@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>网页内定位导航</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css"/>
+	<script src="jquery-3.1.1.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			$(window).scroll(function() {
+				var menu=$("#menu");
+				var items=$("#content").find(".part");
+				var top=$(document).scrollTop();
+
+				var currentId="";
+
+				items.each(function(){
+					var m=$(this);
+					var itemTop=m.offset().top;
+
+					if(top>itemTop-300){
+						currentId="#"+m.attr("id");
+					}else{
+						return false;
+					}
+					//console.log(itemTop);
+				});
+				var currentLink=menu.find(".current");
+				if (currentId && currentLink.attr("href") != currentId) {
+					currentLink.removeClass('current');
+					menu.find("[href='" + currentId + "']").addClass("current");
+				}
+			});
+
+		});
+
+	</script>
+</head>
+<body>
+
+	<div id="menu">
+		<ul>
+			<li><a href="#item1" class="current">1F 男士</a></li>
+			<li><a href="#item2">2F 女士</a></li>
+			<li><a href="#item3">3F 智能</a></li>
+			<li><a href="#item4">4F 生活</a></li>
+			<li><a href="#item5">5F 母婴</a></li>
+		</ul>
+	</div>
+	<div id="content">
+		<h1>网页内导航定位</h1>
+		<div id="item1" class="part">
+			<h2>男士专区</h2>
+			<ul>
+				<li><a href="#"><img src="img/1F.jpg" alt="" /></a></li>
+				<li><a href="#"><img src="img/1F.jpg" alt="" /></a></li>
+				<li><a href="#"><img src="img/1F.jpg" alt="" /></a></li>
+				<li><a href="#"><img src="img/1F.jpg" alt="" /></a></li>
+				<li><a href="#"><img src="img/1F.jpg" alt="" /></a></li>
+				<li><a href="#"><img src="img/1F.jpg" alt="" /></a></li>
+			</ul>
+		</div>
+		<div id="item2" class="part">
+			<h2>女士专区</h2>
+			<ul>
+				<li><a href="#"><img src="img/2F.jpg" alt="" /></a></li>
+				<li><a href="#"><img src="img/2F.jpg" alt="" /></a></li>
+				<li><a href="#"><img src="img/2F.jpg" alt="" /></a></li>
+				<li><a href="#"><img src="img/2F.jpg" alt="" /></a></li>
+				<li><a href="#"><img src="img/2F.jpg" alt="" /></a></li>
+				<li><a href="#"><img src="img/2F.jpg" alt="" /></a></li>
+			</ul>
+		</div>
+		<div id="item3" class="part">
+			<h2>智能专区</h2>
+			<ul>
+				<li><a href="#"><img src="img/4F.png" alt="" /></a></li>
+				<li><a href="#"><img src="img/4F.png" alt="" /></a></li>
+				<li><a href="#"><img src="img/4F.png" alt="" /></a></li>
+				<li><a href="#"><img src="img/4F.png" alt="" /></a></li>
+				<li><a href="#"><img src="img/4F.png" alt="" /></a></li>
+				<li><a href="#"><img src="img/4F.png" alt="" /></a></li>
+			</ul>
+		</div>
+		<div id="item4" class="part">
+			<h2>生活专区</h2>
+			<ul>
+				<li><a href="#"><img src="img/3F.jpg" alt="" /></a></li>
+				<li><a href="#"><img src="img/3F.jpg" alt="" /></a></li>
+				<li><a href="#"><img src="img/3F.jpg" alt="" /></a></li>
+				<li><a href="#"><img src="img/3F.jpg" alt="" /></a></li>
+				<li><a href="#"><img src="img/3F.jpg" alt="" /></a></li>
+				<li><a href="#"><img src="img/3F.jpg" alt="" /></a></li>
+			</ul>
+		</div>
+		<div  id="item5" class="part">
+			<h2>母婴专区</h2>
+			<ul>
+				<li><a href="#"><img src="img/5F.jpg" alt="" /></a></li>
+				<li><a href="#"><img src="img/5F.jpg" alt="" /></a></li>
+				<li><a href="#"><img src="img/5F.jpg" alt="" /></a></li>
+				<li><a href="#"><img src="img/5F.jpg" alt="" /></a></li>
+				<li><a href="#"><img src="img/5F.jpg" alt="" /></a></li>
+				<li><a href="#"><img src="img/5F.jpg" alt="" /></a></li>
+			</ul>
+		</div>
+	</div>
+
+</body>
+</html>
