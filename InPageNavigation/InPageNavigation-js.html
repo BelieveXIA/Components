@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>网页内定位导航</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css"/>
+	<script>
+		function getByClassName(obj,cls){
+			var element = obj.getElementsByTagName('*');
+			var result = [];
+			for(var i =0;i<element.length;i++){
+				if(element[i].className == 'cls'){
+					result.push(element[i]);
+				}
+			}
+			return result;
+		}
+		function hasClass(obj,cls){
+			return obj.className.match(new RegExp("(\\s|^)" + cls + "(\\s|$)"));
+		}
+		function removeClass(obj,cls){
+			if (hasClass(obj.cls)) {
+				var reg = new RegExp("(\\s|^)" + cls + "(\\s|$)");
+				obj.className = obj.className.replace(reg,"");
+			}
+		}
+		function addClass(obj,cls){
+			if(!hasClass(obj.cls)){
+				obj.className += " " + cls;
+			}
+		}
+		window.onload = function(){
+			window.onscroll = function(){
+				var top = document.documentElement ? document.documentElement.onscrollTop : document.body.onscrollTop;
+				var menus = document.getElementById('menu').getElementsByTagName("a");
+				var items = getByClassName(document.getElementById('content'),'part');
+
+				var currentId= "";
+				for (var i = 0; i <items.length; i++) {
+					var _item = items[i];
+					var _itemTop = _item.offsetTop;
+					if (top>_itemTop-200) {
+						currentId = _item.id;
+					}else {
+						break;
+					}
+				}
+				if (currentId) {
+					for (var j = 0; j < menus.length; j++) {
+						var _menu = menus[j];
+						var _href =_menu.href.spil('#');
+
+						if(_href[_href.length-1] != currentId){
+							removeClass(_menu,'current');
+						}else{
+							addClass(_menu,'current');
+						}
+					}
+				}
+			};
+		};
+
+
+	</script>
+</head>
+<body>
+
+	<div id="menu">
+		<ul>
+			<li><a href="#item1" class="current">1F 男士</a></li>
+			<li><a href="#item2">2F 女士</a></li>
+			<li><a href="#item3">3F 智能</a></li>
+			<li><a href="#item4">4F 生活</a></li>
+			<li><a href="#item5">5F 母婴</a></li>
+		</ul>
+	</div>
+	<div id="content">
+		<h1>网页内导航定位</h1>
+		<div id="item1" class="part">
+			<h2>男士专区</h2>
+			<ul>
+				<li><a href="#"><img src="img/1F.jpg" alt="" /></a></li>
+				<li><a href="#"><img src="img/1F.jpg" alt="" /></a></li>
+				<li><a href="#"><img src="img/1F.jpg" alt="" /></a></li>
+				<li><a href="#"><img src="img/1F.jpg" alt="" /></a></li>
+				<li><a href="#"><img src="img/1F.jpg" alt="" /></a></li>
+				<li><a href="#"><img src="img/1F.jpg" alt="" /></a></li>
+			</ul>
+		</div>
+		<div id="item2" class="part">
+			<h2>女士专区</h2>
+			<ul>
+				<li><a href="#"><img src="img/2F.jpg" alt="" /></a></li>
+				<li><a href="#"><img src="img/2F.jpg" alt="" /></a></li>
+				<li><a href="#"><img src="img/2F.jpg" alt="" /></a></li>
+				<li><a href="#"><img src="img/2F.jpg" alt="" /></a></li>
+				<li><a href="#"><img src="img/2F.jpg" alt="" /></a></li>
+				<li><a href="#"><img src="img/2F.jpg" alt="" /></a></li>
+			</ul>
+		</div>
+		<div id="item3" class="part">
+			<h2>智能专区</h2>
+			<ul>
+				<li><a href="#"><img src="img/4F.png" alt="" /></a></li>
+				<li><a href="#"><img src="img/4F.png" alt="" /></a></li>
+				<li><a href="#"><img src="img/4F.png" alt="" /></a></li>
+				<li><a href="#"><img src="img/4F.png" alt="" /></a></li>
+				<li><a href="#"><img src="img/4F.png" alt="" /></a></li>
+				<li><a href="#"><img src="img/4F.png" alt="" /></a></li>
+			</ul>
+		</div>
+		<div id="item4" class="part">
+			<h2>生活专区</h2>
+			<ul>
+				<li><a href="#"><img src="img/3F.jpg" alt="" /></a></li>
+				<li><a href="#"><img src="img/3F.jpg" alt="" /></a></li>
+				<li><a href="#"><img src="img/3F.jpg" alt="" /></a></li>
+				<li><a href="#"><img src="img/3F.jpg" alt="" /></a></li>
+				<li><a href="#"><img src="img/3F.jpg" alt="" /></a></li>
+				<li><a href="#"><img src="img/3F.jpg" alt="" /></a></li>
+			</ul>
+		</div>
+		<div  id="item5" class="part">
+			<h2>母婴专区</h2>
+			<ul>
+				<li><a href="#"><img src="img/5F.jpg" alt="" /></a></li>
+				<li><a href="#"><img src="img/5F.jpg" alt="" /></a></li>
+				<li><a href="#"><img src="img/5F.jpg" alt="" /></a></li>
+				<li><a href="#"><img src="img/5F.jpg" alt="" /></a></li>
+				<li><a href="#"><img src="img/5F.jpg" alt="" /></a></li>
+				<li><a href="#"><img src="img/5F.jpg" alt="" /></a></li>
+			</ul>
+		</div>
+	</div>
+
+</body>
+</html>
