@@ -5,60 +5,60 @@
 	<title>网页内定位导航</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css"/>
 	<script>
-		function getByClassName(obj,cls){
-			var element = obj.getElementsByTagName('*');
+		function getByClassName(obj, cls){
+			var elements = obj.getElementsByTagName("*");
 			var result = [];
-			for(var i =0;i<element.length;i++){
-				if(element[i].className == 'cls'){
-					result.push(element[i]);
+			for(var i = 0; i < elements.length; i++){
+				if(elements[i].className == cls){
+					result.push(elements[i]);
 				}
 			}
 			return result;
 		}
-		function hasClass(obj,cls){
+		function hasClass( obj, cls ){ 
 			return obj.className.match(new RegExp("(\\s|^)" + cls + "(\\s|$)"));
 		}
-		function removeClass(obj,cls){
-			if (hasClass(obj.cls)) {
+		function removeClass( obj, cls ){ 
+			if( hasClass( obj, cls )){ 
 				var reg = new RegExp("(\\s|^)" + cls + "(\\s|$)");
-				obj.className = obj.className.replace(reg,"");
+				obj.className = obj.className.replace(reg, "");
 			}
 		}
-		function addClass(obj,cls){
-			if(!hasClass(obj.cls)){
+		function addClass(obj, cls){
+			if(!hasClass(obj, cls)){
 				obj.className += " " + cls;
 			}
 		}
-		window.onload = function(){
-			window.onscroll = function(){
-				var top = document.documentElement ? document.documentElement.onscrollTop : document.body.onscrollTop;
-				var menus = document.getElementById('menu').getElementsByTagName("a");
-				var items = getByClassName(document.getElementById('content'),'part');
 
-				var currentId= "";
-				for (var i = 0; i <items.length; i++) {
+		window.onload = function(){ 
+			window.onscroll = function(){ 		
+				var top = document.documentElement.scrollTop || document.body.scrollTop;
+				var menus = document.getElementById("menu").getElementsByTagName("a");
+				var items = getByClassName(document.getElementById("content"), "part");
+
+				var currentId = "";
+				for ( var i=0; i< items.length; i++ ){ 
 					var _item = items[i];
 					var _itemTop = _item.offsetTop;
-					if (top>_itemTop-200) {
+					if( top > _itemTop - 200 ){ 
 						currentId = _item.id;
-					}else {
+					} else { 
 						break;
-					}
+					}			
 				}
-				if (currentId) {
-					for (var j = 0; j < menus.length; j++) {
+				if(currentId){
+					for(var j = 0; j < menus.length; j++){
 						var _menu = menus[j];
-						var _href =_menu.href.spil('#');
-
-						if(_href[_href.length-1] != currentId){
-							removeClass(_menu,'current');
-						}else{
-							addClass(_menu,'current');
+						var _href = _menu.href.split("#");
+						if(_href[_href.length - 1] != currentId){
+							removeClass(_menu, "current");
+						} else {
+							addClass(_menu, "current");
 						}
 					}
-				}
+				} 
 			};
-		};
+		};	
 
 
 	</script>
