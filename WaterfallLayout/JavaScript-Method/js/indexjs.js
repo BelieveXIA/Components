@@ -1,11 +1,22 @@
 window.onload=function(){
 	waterfall('main','box');
-	// var dataInt = {"data":[{"src":'1.jpg'},{"src":'2.jpg'},{"src":'3.jpg'}]};
-	// window.onscroll=function(){
-	// 	if(checkScrollSlide){
-
-	// 	}
-	// };
+	var dataInt = {"data":[{"src":'1.jpg'},{"src":'2.jpg'},{"src":'3.jpg'}]};
+	window.onscroll=function(){
+		if(checkScrollSlide){
+			var oParent = document.getElementById('main');			
+			for (var i = 0; i < dataInt.length; i++) {
+				var oBox = document.createElement('div');
+				oBox.className = 'box';
+				oParent.appendChild(oBox);
+				var oPic = document.createElement('div');
+				oPic.className = 'pic';
+				oBox.appendChild(oPic);
+				var oImg = document.createElement('img');
+				oImg.src = "image/" + dataInt.data[i].src;
+				oPic.appendChild(oImg);
+			}
+		}
+	};
 };
 function waterfall(parent,box){
 	var oParent = document.getElementById(parent);
@@ -60,6 +71,7 @@ function checkScrollSlide(){
 	var lastBoxH = oBoxs[oBoxs.length-1].offsetTop+Math.floor(oBoxs[oBoxs.length-1].offsetHeight/2);
 	var scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
 	var height = document.body.clientHeight || document.documentElement.clientHeight;
+	// console.log(height);
 	return (lastBoxH<scrollTop + height) ? true : false;
 
 }
