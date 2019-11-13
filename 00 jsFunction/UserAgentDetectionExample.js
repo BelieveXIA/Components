@@ -5,27 +5,27 @@ var client = function(){
 
 	//呈现引擎
 	var engine = {
-		ie:0,
-		gecko:0,
-		webkit:0,
-		khtml:0,
-		opera:0,
+		ie: 0,
+		gecko: 0,
+		webkit: 0,
+		khtml: 0,
+		opera: 0,
 
 		//完整的版本号
-		ver:null
+		ver: null
 	};
 
 	//浏览器
 	var browser = {
 		//主要浏览器
-		ie:0,
-		firefox:0,
-		safari:0,
-		konq:0,
-		opera:0,
-		chrome:0,
+		ie: 0,
+		firefox: 0,
+		safari: 0,
+		konq: 0,
+		opera: 0,
+		chrome: 0,
 		//具体的版本号
-		ver:null
+		ver: null
 	};
 
 	 //平台、设备和操作系统
@@ -100,15 +100,15 @@ var client = function(){
 	 browser.opera = engine.opera;
 
 	 //检测平台
-	 var p = navigator.platform;
-	 system.win = p.indexOf("win") == 0;
-	 system.mac = p.indexOf("mac") == 0;
-	 system.x11 = (p=="X11") || (p.indexOf("Linux") == 0);
+    var p = navigator.platform;
+    system.win = p.indexOf("Win") == 0;
+    system.mac = p.indexOf("Mac") == 0;
+    system.x11 = (p == "X11") || (p.indexOf("Linux") == 0);
 
 	 //检测Window操作系统
-	 if(system.win){
-	 	if(/Win(?:dows )?([^do]{2})\s?(\d+\.\d+)?/.test(ua)){
-	 		if(RegExp["$1"] == "NT"){
+	 if (system.win){
+	 	if (/Win(?:dows )?([^do]{2})\s?(\d+\.\d+)?/.test(ua)){
+	 		if (RegExp["$1"] == "NT"){
 	 			switch(RegExp["$2"]){
 	 				case "5.0":
 	 				system.win = "2000";
@@ -124,11 +124,11 @@ var client = function(){
 	 				break;
 	 				default:
 	 				system.win = "NT";
-	 				break;
-	 			}	
-	 		}else if(RegExp["$1"] == "9x"){
+	 				break;                
+	 			}                            
+	 		} else if (RegExp["$1"] == "9x"){
 	 			system.win = "ME";
-	 		}else{
+	 		} else {
 	 			system.win = RegExp["$1"];
 	 		}
 	 	}
