@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>视频播放器</title>
+	<link rel="stylesheet" type="text/css" href="css/video_style.css"/>
+	
+</head>
+<body>
+	<h3>视频播放器-简单</h3>
+	<div class="outerNode">
+		<!-- loop autoplay controls-->
+		<video class="videoNode" src="data/imooc.mp4"  poster="data/poster.jpg"></video>
+		<div class="controlsNode">
+			<div class="playNode"></div>
+			<div class="loadNode">
+				<div class="loadLeft"></div>
+				<div class="loadRight"></div>
+				<div class="crlNode"></div>
+				<div class="lineNode">
+					<div class="lineRight"></div>
+				</div>
+			</div>
+			<div class="timeNode">
+				<span class="nowTime">00:00</span>
+				<span>-</span>
+				<span class="allTime">05:00</span>
+			</div>
+			<div class="volumeNode"></div>
+			<div class="volumeLine">
+				<div class="v_left"></div>
+				<div class="v_right"></div>
+				<div class="v_DragNode"></div>
+			</div>
+			<div class="fullNode"></div>
+		</div>
+	</div>
+	
+	<script type="text/javascript" src="js/video_script.js"></script>
+</body>
+</html>
