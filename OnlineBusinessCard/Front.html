@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>名片生成器</title>
+	<link rel="stylesheet" type="text/css" href="style.css"/>
+	
+</head>
+<body>
+	<div class ="left-div">
+		<div class="line">
+			<input id="name" type="text" placeholder="姓名"/>
+		</div>
+		<div class="line">
+			<input id="job" type="text" placeholder="职业"/>
+		</div>
+		<div class="line">
+			<input id="address" type="text" placeholder="地址"/>	
+		</div>
+		<div class="line">
+			<input id="slogan" type="text" placeholder="口号" />
+		</div>
+		<div class="line">
+			<button id="generateBtn">生成名片</button>
+		</div>
+		<div class="line"><span>PS:使用方式：“右键”名片-“图片另存为”</span></div>
+	</div>
+	<div class ="right-div">
+		<canvas id="cardCanvas">
+			您的浏览器不支持Canvas，请升级浏览器
+		</canvas>
+		<canvas id="animCanvas">
+			您的浏览器不支持Canvas，请升级浏览器
+		</canvas>
+	</div>
+	<script type="text/javascript" src="script.js"></script>
+</body>
+</html>
