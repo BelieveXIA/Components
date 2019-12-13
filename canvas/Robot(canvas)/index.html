@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Robot</title>
+    <style>
+        canvas{background-color:lightblue;}
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="800" height="800">
+        您的浏览器不支持canvas
+    </canvas>
+    
+    <script>
+        //在此处写出代码
+        var canvas1 = document.getElementById("canvas");
+        var ctx = canvas1.getContext("2d");
+        //耳朵左
+        ctx.moveTo(300,50);
+        ctx.lineTo(360,150);
+        ctx.lineWidth = 2;
+        ctx.strokeStyle = "#fcc022";
+        ctx.stroke();
+        //耳朵右
+        ctx.beginPath();
+        ctx.moveTo(500,50);
+        ctx.lineTo(440,150);
+        ctx.stroke();
+        //大头部
+        ctx.beginPath();
+        ctx.strokeStyle = "rgba(0,0,0,0)";
+        ctx.strokeRect(300,150,200,100);
+        ctx.fillStyle = "#fedab8";
+        ctx.fill();
+        ctx.fillRect(300,150,200,100);
+        
+        //左耳
+        ctx.beginPath();
+        ctx.strokeRect(280,170,20,40);
+        ctx.fillStyle = "#fed700";
+        ctx.fill();
+        ctx.fillRect(280,170,20,40);
+        //右耳
+        ctx.beginPath();
+        ctx.strokeRect(500,170,20,40);
+        ctx.fillStyle = "#fed700";
+        ctx.fill();
+        ctx.fillRect(500,170,20,40);
+        //嘴巴
+        ctx.beginPath();
+        ctx.strokeRect(365,215,70,20);
+        ctx.fillStyle = "#fe0000";
+        ctx.fill();
+        ctx.fillRect(365,215,70,20);
+        //左眼
+        ctx.beginPath();
+        ctx.arc(350,190,10,0,2*Math.PI,true);
+        ctx.fillStyle = "#000000";
+        ctx.fill();
+        ctx.stroke();
+        //右眼
+        ctx.beginPath();
+        ctx.arc(450,190,10,0,2*Math.PI,true);
+        ctx.fillStyle = "#000000";
+        ctx.fill();
+        ctx.stroke();
+        //身体
+        ctx.beginPath();
+        ctx.strokeRect(340,250,120,200);
+        ctx.fillStyle = "#ffb6c1";
+        ctx.fill();
+        ctx.fillRect(340,250,120,200);
+        //左手
+        ctx.beginPath();
+        ctx.strokeRect(150,330,190,15);
+        ctx.fillStyle = "#20b1aa";
+        ctx.fill();
+        ctx.fillRect(150,330,190,15);
+        //右手
+        ctx.beginPath();
+        ctx.strokeRect(460,330,190,15);
+        ctx.fillStyle = "#20b1aa";
+        ctx.fill();
+        ctx.fillRect(460,330,190,15);
+        //左脚
+        ctx.beginPath();
+        ctx.strokeRect(350,450,20,190);
+        ctx.fillStyle = "#20b1aa";
+        ctx.fill();
+        ctx.fillRect(350,450,20,190);
+        //右脚
+        ctx.beginPath();
+        ctx.strokeRect(430,450,20,190);
+        ctx.fillStyle = "#20b1aa";
+        ctx.fill();
+        ctx.fillRect(430,450,20,190);
+	</script>
+</body>
+
+</html>
